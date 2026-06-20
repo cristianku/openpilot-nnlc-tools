@@ -8,8 +8,8 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
-      - /opt/docker/nnlc/data:/app/data
-      - /opt/docker/nnlc/output:/app/output
+      - ../data:/app/data
+      - ../output:/app/output
 
   train:
     build:
@@ -20,5 +20,5 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
-      - /opt/docker/nnlc/data:/app/data
-      - /opt/docker/nnlc/output:/app/output
+      - ../data:/app/data
+      - ../output:/app/output
