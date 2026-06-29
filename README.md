@@ -8,7 +8,8 @@ This repo consolidates the scattered, broken tooling into one place. Discussion 
 
 ## Prerequisites
 
-- **Python 3.11+**
+- **Python 3.11 or 3.12** — Python 3.13 is not supported by the current NumPy 1.x dependency set
+- **uv** — recommended Python environment/dependency manager
 - **Julia 1.9+** — for model training (with CUDA or Metal GPU recommended)
 - **comma device** — for collecting driving data (comma 3/3X)
 
@@ -139,12 +140,32 @@ As of Feb 2026 there are 113 NNLC models. I personally don't know the status of 
 
 ## Installation
 
+Install `uv` first if it is not already available:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Create the virtual environment with Python 3.12. This avoids Python 3.13 selecting an incompatible NumPy 1.x build:
+
 ```bash
 git clone https://github.com/amzoo/openpilot-nnlc-tools.git
 cd openpilot-nnlc-tools
 
-# Create virtual environment with uv (recommended)
+uv python install 3.12
 uv venv
+source .venv/bin/activate
+uv pip install -e .
+```
+
+If the virtual environment was already created with Python 3.13, remove it and recreate it:
+
+```bash
+rm -rf .venv
+uv python install 3.12
+uv venv
+source .venv/bin/activate
 uv pip install -e .
 ```
 
@@ -495,6 +516,20 @@ nnlc-sc-visualize [-h] [-o OUTPUT] [--gap-frames GAP_FRAMES]
 Standalone 3×3 feature diagnostic plot — histograms of all 11 classifier features split by driver/mechanical, speed-vs-duration scatter, speed band bar chart, and cascade stage distribution. Useful for threshold exploration without writing pruned output.
 
 ## Troubleshooting
+
+### NumPy build fails on Python 3.13
+
+If `uv pip install -e .` fails while building `numpy==1.26.4`, or the log says `Cannot compile Python.h`, the virtual environment was probably created with Python 3.13. Recreate it with Python 3.12:
+
+```bash
+rm -rf .venv
+uv python install 3.12
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+```
+
+Do not fix this by only installing `python3-dev`; the project currently targets Python 3.11/3.12.
 
 ### Out of memory during extraction
 
