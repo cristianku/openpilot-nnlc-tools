@@ -72,9 +72,18 @@ def extract_segment(rlog_path):
         print(f"  WARNING: Could not open {rlog_path}: {e}")
         return rows
 
+    unknown_events = 0
     try:
         for msg in lr:
-            msg_type = msg.which()
+            try:
+                msg_type = msg.which()
+            except Exception:
+                # Logs can contain newer Event union variants that are absent
+                # from the bundled cereal schema. They are unrelated to the
+                # signals extracted here, so skip them instead of discarding
+                # the remainder of the segment.
+                unknown_events += 1
+                continue
 
             if msg_type == "carState":
                 sm["carState"] = msg.carState
@@ -150,6 +159,8 @@ def extract_segment(rlog_path):
                     lane_change_state,
                 ]
                 rows.append(row)
+        if unknown_events:
+            print(f"  WARNING: Skipped {unknown_events} unknown event(s) in {rlog_path}")
     except Exception as e:
         print(f"  WARNING: Error processing {rlog_path}: {e}")
 

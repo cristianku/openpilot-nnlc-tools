@@ -1,0 +1,350 @@
+Loading data...
+Filtered out 0 inactive rows
+Filtered out 0 standstill rows
+Computing lateral_jerk from temporal lateral accel
+Loaded 118214 rows
+Data 20×19 DataFrame
+ Row │ v_ego    actual_lateral_accel  roll        torque_output  actual_lateral_accel_tm03  actual_lateral_accel_tm02  actual_lateral_accel_tm01  actual_lateral_accel_tp03  actual_lateral_accel_tp06  actual_lateral_accel_tp10  actual_lateral_accel_tp15  roll_tm03   roll_tm02   roll_tm01   roll_tp03   roll_tp06    roll_tp10   roll_tp15    lateral_jerk
+     │ Float64  Float64               Float64?    Float64        Float64                    Float64                    Float64                    Float64?                   Float64?                   Float64?                   Float64?                   Float64?    Float64?    Float64?    Float64?    Float64?     Float64?    Float64?     Float64
+─────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1 │ 15.2234             0.0342323   0.0346467     -0.0440187                  0.0279539                  0.0335958                  0.03546                    0.0106807                 -0.0555285                 -0.057483                  -0.0141214   0.0356717   0.035963    0.0353759   0.0347599   0.0343971    0.0342068   0.0337274     -0.785054
+   2 │ 16.0093            -0.0765952   0.0405317      0.0538117                 -0.0479538                 -0.0573605                 -0.0748011                 -0.088127                   0.034226                   0.0378904                 -0.0178039   0.0407883   0.0407757   0.0407596   0.0397994   0.0386539    0.0386803   0.0395842     -0.384393
+   3 │ 17.2539            -0.905137   -0.0459678      0.225245                  -0.759719                  -0.761967                  -0.761242                  -1.05                      -0.81225                   -1.08173                   -0.836305   -0.0408109  -0.041873   -0.0438284  -0.0470078  -0.0449476   -0.03747    -0.0285911     -4.82885
+   4 │ 19.8382             0.0685912   0.0426139     -0.14129                    0.042802                   0.0419585                  0.0416784                  0.245926                   0.186727                   0.080257                   0.0428414   0.0408488   0.0412568   0.041961    0.0439186   0.0446769    0.0443825   0.0442631      5.91114
+   5 │ 32.4657            -0.22492    -0.0208821      0.229988                  -0.321864                  -0.272425                  -0.24929                   -0.342132                  -0.501911                  -0.590661                  -0.361357   -0.0207069  -0.0213759  -0.0212877  -0.0240483  -0.0244316   -0.0253556  -0.0265384     -3.90709
+   6 │ 17.4224            -0.176088    0.0402826      0.0853276                 -0.145405                  -0.144282                  -0.154705                  -0.198041                  -0.205167                   0.0390512                 -0.0221342   0.0426167   0.042447    0.0415004   0.0371765   0.0333513    0.0311897   0.0268933     -0.731764
+   7 │ 14.0878             0.0863858   0.0311446     -0.0433327                  0.0                        0.0                        0.0846765                  0.0851603                  0.0975167                  0.179918                   0.0493865   0.0267668   0.0283252   0.0297588   0.0341684   0.0332865    0.0265602   0.0183225     -0.0408481
+   8 │ 14.9725             0.492918    0.0407878     -0.454898                   0.697343                   0.553672                   0.494001                   0.60112                    0.636883                   0.569168                   0.277604    0.0417966   0.0411255   0.0408804   0.0408359   0.0417051    0.042798    0.0439052      3.60672
+   9 │ 16.2997            -0.0540024   0.0390492      0.13121                   -0.0430795                 -0.0437445                 -0.0452196                 -0.0655438                 -0.0675975                  0.0233516                  0.0331695   0.0393671   0.0395327   0.0392585   0.0380965   0.0390656    0.0415472   0.0398957     -0.384714
+  10 │ 32.3611            -0.281164   -0.0151614     -0.0587765                 -0.189329                  -0.251396                  -0.255407                  -0.259514                  -0.130955                  -0.163212                  -0.442018   -0.0129133  -0.0137202  -0.0144107  -0.0145154  -0.0152749   -0.017142   -0.0169679      0.72166
+  11 │ 29.4495             0.421043    0.027283      -0.305492                   0.136526                   0.252791                   0.310456                   0.612034                   0.442676                   0.143236                   0.595611    0.0253979   0.025704    0.0268264   0.0239286   0.0222884    0.02559     0.0221173      6.36639
+  12 │ 13.2584             0.0        -0.0397248      0.0                        0.0                        0.0                        0.0                        0.0                        0.0                        0.0                        0.0        -0.038904   -0.0391291  -0.0394202  -0.0397773  -0.0395503   -0.0401578  -0.0416093      0.0
+  13 │ 32.3463             0.119362    0.0300073      0.111965                  -0.0430684                 -0.0176994                  0.0734696                  0.167296                  -0.042891                  -0.126059                   0.0598012   0.0305135   0.0307313   0.0305855   0.0296278   0.02887      0.0296439   0.0308262      1.59781
+  14 │ 27.9529             0.433162    0.0290909      0.124049                   0.582266                   0.529313                   0.500916                   0.297057                   0.18218                    0.315915                  -0.592617    0.0310094   0.0296451   0.0290224   0.0310234   0.0315643    0.0297152   0.0307479     -4.53682
+  15 │ 14.7571             0.0940288   0.0363324     -0.0456495                  0.102105                   0.0899434                  0.0920597                  0.101526                   0.0580714                 -1.4905e-5                 -0.0207802   0.0313244   0.0326603   0.0345059   0.040948    0.0440883    0.0473373   0.0410482      0.249906
+  16 │ 25.8792             0.193431    0.0309858     -0.0542744                 -0.0169387                  0.0592479                  0.152904                   0.264312                   0.279462                   0.0561605                  0.0256625   0.030618    0.0310093   0.0312791   0.0304162   0.0319213    0.0312925   0.0315835      2.3627
+  17 │ 14.5827            -0.455906   -0.0164389      0.246947                  -0.39804                   -0.404011                  -0.444088                  -0.487366                  -0.507693                  -0.547159                  -0.558243   -0.0188548  -0.0179022  -0.0171775  -0.0149769  -0.0137607   -0.0126766  -0.00847141    -1.04869
+  18 │ 17.6541            -0.280147    0.0273544     -0.100251                   0.0651505                  0.0629156                 -0.0106525                 -0.326383                  -0.155532                  -0.659019                  -0.921804    0.0383751   0.0353884   0.0314161   0.0142345  -0.00456399  -0.0255748  -0.037719      -1.54118
+  19 │ 14.0821             0.488951    0.0342498     -0.578987                   0.292825                   0.417697                   0.455796                   1.22357                    1.28103                    2.13169                    0.730749    0.0356044   0.0352351   0.0347173   0.0320558   0.0290692    0.0298111   0.0277215     24.4874
+  20 │ 16.0944            -0.827155   -0.0466519      0.338671                  -0.744217                  -0.743867                  -0.752692                  -0.894177                  -0.932972                  -1.01282                   -1.28442    -0.0460805  -0.0461554  -0.0464265  -0.0472055  -0.0470775   -0.0490629  -0.0500511     -2.23408
+v_ego: n: 118214, mean: 18.974451, std: 5.224119, min: 7.173114, max: 32.513424, 25%: 15.460856, 50%: 17.174936, 75%: 21.052011
+actual_lateral_accel: n: 118214, mean: 0.033407, std: 0.491756, min: -2.822303, max: 3.240046, 25%: -0.150467, 50%: 0.000000, 75%: 0.183579
+roll: n: 118214, mean: 0.023231, std: 0.028038, min: -0.059459, max: 0.083316, 25%: 0.010182, 50%: 0.031265, 75%: 0.042421
+torque_output: n: 118214, mean: 0.011257, std: 0.223247, min: -1.000000, max: 1.000000, 25%: -0.082216, 50%: 0.012335, 75%: 0.121280
+actual_lateral_accel_tm03: n: 118214, mean: 0.034059, std: 0.498170, min: -2.822303, max: 3.240046, 25%: -0.153809, 50%: 0.000000, 75%: 0.185373
+actual_lateral_accel_tm02: n: 118214, mean: 0.033827, std: 0.496792, min: -2.822303, max: 3.240046, 25%: -0.152622, 50%: 0.000000, 75%: 0.185261
+actual_lateral_accel_tm01: n: 118214, mean: 0.033879, std: 0.494432, min: -2.822303, max: 3.240046, 25%: -0.151210, 50%: 0.000000, 75%: 0.184070
+actual_lateral_accel_tp03: n: 118214, mean: 0.031775, std: 0.491415, min: -2.537025, max: 4.203228, 25%: -0.152011, 50%: 0.000000, 75%: 0.181450
+actual_lateral_accel_tp06: n: 118214, mean: 0.031166, std: 0.491794, min: -2.537025, max: 4.208812, 25%: -0.152834, 50%: 0.000000, 75%: 0.178978
+actual_lateral_accel_tp10: n: 118214, mean: 0.031601, std: 0.491042, min: -2.537025, max: 4.208812, 25%: -0.150224, 50%: 0.000000, 75%: 0.175674
+actual_lateral_accel_tp15: n: 118214, mean: 0.032597, std: 0.491414, min: -2.537025, max: 4.208812, 25%: -0.140922, 50%: 0.000000, 75%: 0.171121
+roll_tm03: n: 118214, mean: 0.023265, std: 0.027996, min: -0.059459, max: 0.084011, 25%: 0.010170, 50%: 0.031253, 75%: 0.042370
+roll_tm02: n: 118214, mean: 0.023253, std: 0.028008, min: -0.059459, max: 0.084011, 25%: 0.010165, 50%: 0.031253, 75%: 0.042385
+roll_tm01: n: 118214, mean: 0.023243, std: 0.028021, min: -0.059459, max: 0.084011, 25%: 0.010177, 50%: 0.031258, 75%: 0.042413
+roll_tp03: n: 118214, mean: 0.023156, std: 0.028111, min: -0.059459, max: 0.080880, 25%: 0.009771, 50%: 0.031291, 75%: 0.042420
+roll_tp06: n: 118214, mean: 0.023072, std: 0.028174, min: -0.059459, max: 0.081791, 25%: 0.009521, 50%: 0.031288, 75%: 0.042421
+roll_tp10: n: 118214, mean: 0.022948, std: 0.028253, min: -0.059459, max: 0.085571, 25%: 0.009239, 50%: 0.031253, 75%: 0.042477
+roll_tp15: n: 118214, mean: 0.022781, std: 0.028369, min: -0.059459, max: 0.085845, 25%: 0.008531, 50%: 0.031118, 75%: 0.042473
+lateral_jerk: n: 118214, mean: -0.054398, std: 6.530897, min: -79.328147, max: 121.822352, 25%: -1.724020, 50%: 0.000000, 75%: 1.624120
+Filtering out extreme values
+118214 rows before filtering
+Filtered out 0 points with v_ego outside [0.1, 45.0]
+Filtered out 0 points with torque_output outside [-2.0, 2.0]
+Filtered out 97 points with lateral_accel outside [-4.1, 4.1]
+Filtered out 30977 points with lateral_jerk outside [-5.0, 5.0]
+Filtered out 0 points with roll outside [-0.2, 0.2]
+87140 rows after filtering
+v_ego: n: 87140, mean: 18.489136, std: 5.015472, min: 7.173114, max: 32.513424, 25%: 15.154861, 50%: 16.471457, 75%: 20.577504
+actual_lateral_accel: n: 87140, mean: 0.014547, std: 0.407358, min: -2.304247, max: 2.235674, 25%: -0.111136, 50%: 0.000000, 75%: 0.129702
+roll: n: 87140, mean: 0.023309, std: 0.027273, min: -0.059459, max: 0.082132, 25%: 0.012545, 50%: 0.031720, 75%: 0.042184
+torque_output: n: 87140, mean: 0.015911, std: 0.165582, min: -1.000000, max: 1.000000, 25%: -0.047128, 50%: 0.013545, 75%: 0.096225
+actual_lateral_accel_tm03: n: 87140, mean: 0.014130, std: 0.407946, min: -2.250265, max: 2.429220, 25%: -0.109383, 50%: 0.000000, 75%: 0.127713
+actual_lateral_accel_tm02: n: 87140, mean: 0.013596, std: 0.405912, min: -2.034093, max: 2.326677, 25%: -0.109736, 50%: 0.000000, 75%: 0.127880
+actual_lateral_accel_tm01: n: 87140, mean: 0.014121, std: 0.404360, min: -1.910798, max: 2.233235, 25%: -0.109723, 50%: 0.000000, 75%: 0.128323
+actual_lateral_accel_tp03: n: 87140, mean: 0.013875, std: 0.409747, min: -2.261995, max: 2.262135, 25%: -0.113863, 50%: 0.000000, 75%: 0.130909
+actual_lateral_accel_tp06: n: 87140, mean: 0.015701, std: 0.414357, min: -2.528165, max: 2.733840, 25%: -0.111264, 50%: 0.000000, 75%: 0.129809
+actual_lateral_accel_tp10: n: 87140, mean: 0.018980, std: 0.411508, min: -2.415278, max: 3.240046, 25%: -0.110488, 50%: 0.000000, 75%: 0.136792
+actual_lateral_accel_tp15: n: 87140, mean: 0.020520, std: 0.427259, min: -2.403807, max: 4.083964, 25%: -0.107821, 50%: 0.000000, 75%: 0.133741
+roll_tm03: n: 87140, mean: 0.023221, std: 0.027229, min: -0.059459, max: 0.084011, 25%: 0.011876, 50%: 0.031630, 75%: 0.042152
+roll_tm02: n: 87140, mean: 0.023253, std: 0.027239, min: -0.059459, max: 0.084011, 25%: 0.012026, 50%: 0.031649, 75%: 0.042216
+roll_tm01: n: 87140, mean: 0.023285, std: 0.027252, min: -0.059315, max: 0.083316, 25%: 0.012261, 50%: 0.031687, 75%: 0.042199
+roll_tp03: n: 87140, mean: 0.023342, std: 0.027357, min: -0.059097, max: 0.080770, 25%: 0.012499, 50%: 0.031866, 75%: 0.042233
+roll_tp06: n: 87140, mean: 0.023334, std: 0.027415, min: -0.059103, max: 0.081791, 25%: 0.012517, 50%: 0.031963, 75%: 0.042249
+roll_tp10: n: 87140, mean: 0.023240, std: 0.027482, min: -0.059103, max: 0.085571, 25%: 0.012563, 50%: 0.031962, 75%: 0.042334
+roll_tp15: n: 87140, mean: 0.023128, std: 0.027586, min: -0.059315, max: 0.085845, 25%: 0.011500, 50%: 0.031857, 75%: 0.042413
+lateral_jerk: n: 87140, mean: -0.022388, std: 1.918960, min: -4.999140, max: 4.999857, 25%: -0.804067, 50%: 0.000000, 75%: 0.710619
+Calculating bins
+Balancing data into 1136 bins
+Num points after initial balancing: 16596
+Bin sizes: min=1, max=20, mean=14.609154929577464, std=7.136335316686507
+Shrinking bins to 11 points
+Num points after final balancing: 12496
+v_ego: n: 12496, mean: 20.684522, std: 5.577989, min: 7.255686, max: 32.502090, 25%: 16.341670, 50%: 19.024807, 75%: 25.048187
+actual_lateral_accel: n: 12496, mean: 0.085968, std: 0.740363, min: -2.304247, max: 2.235674, 25%: -0.372163, 50%: 0.039254, 75%: 0.534789
+roll: n: 12496, mean: 0.020864, std: 0.031625, min: -0.059459, max: 0.082132, 25%: -0.002156, 50%: 0.029622, 75%: 0.042050
+torque_output: n: 12496, mean: -0.004992, std: 0.244470, min: -1.000000, max: 0.869467, 25%: -0.140779, 50%: 0.009029, 75%: 0.143311
+actual_lateral_accel_tm03: n: 12496, mean: 0.075773, std: 0.701810, min: -2.058981, max: 2.429220, 25%: -0.319261, 50%: 0.026191, 75%: 0.425339
+actual_lateral_accel_tm02: n: 12496, mean: 0.075536, std: 0.704558, min: -1.935555, max: 2.326677, 25%: -0.342013, 50%: 0.032822, 75%: 0.469952
+actual_lateral_accel_tm01: n: 12496, mean: 0.078089, std: 0.706927, min: -1.909675, max: 2.233235, 25%: -0.357572, 50%: 0.037431, 75%: 0.500930
+actual_lateral_accel_tp03: n: 12496, mean: 0.084391, std: 0.741104, min: -2.261995, max: 2.262135, 25%: -0.365360, 50%: 0.033092, 75%: 0.548990
+actual_lateral_accel_tp06: n: 12496, mean: 0.079278, std: 0.702277, min: -2.500586, max: 2.733840, 25%: -0.309447, 50%: 0.020733, 75%: 0.462278
+actual_lateral_accel_tp10: n: 12496, mean: 0.061740, std: 0.669714, min: -2.415278, max: 3.213943, 25%: -0.259343, 50%: 0.005913, 75%: 0.386312
+actual_lateral_accel_tp15: n: 12496, mean: 0.042377, std: 0.638477, min: -2.402219, max: 3.873347, 25%: -0.267835, 50%: 0.000000, 75%: 0.327175
+roll_tm03: n: 12496, mean: 0.021034, std: 0.031766, min: -0.059384, max: 0.084011, 25%: -0.001881, 50%: 0.029388, 75%: 0.041805
+roll_tm02: n: 12496, mean: 0.020916, std: 0.031745, min: -0.059459, max: 0.084011, 25%: -0.001822, 50%: 0.029367, 75%: 0.041698
+roll_tm01: n: 12496, mean: 0.020901, std: 0.031673, min: -0.059103, max: 0.083316, 25%: -0.001590, 50%: 0.029607, 75%: 0.041909
+roll_tp03: n: 12496, mean: 0.020648, std: 0.031462, min: -0.059097, max: 0.080770, 25%: -0.000897, 50%: 0.029014, 75%: 0.041730
+roll_tp06: n: 12496, mean: 0.020563, std: 0.031321, min: -0.059103, max: 0.081043, 25%: -0.000710, 50%: 0.029099, 75%: 0.041593
+roll_tp10: n: 12496, mean: 0.020538, std: 0.031115, min: -0.058908, max: 0.081083, 25%: -0.000839, 50%: 0.029291, 75%: 0.041591
+roll_tp15: n: 12496, mean: 0.020937, std: 0.030788, min: -0.059315, max: 0.085771, 25%: -0.000412, 50%: 0.029381, 75%: 0.041721
+lateral_jerk: n: 12496, mean: -0.052588, std: 2.698262, min: -4.999140, max: 4.999085, 25%: -2.113942, 50%: 0.000000, 75%: 1.984640
+Model file: ./output/2026-06-29_15-07-19/train/training_results/lateral_data_pruned/lateral_data_pruned.bson
+10×18 DataFrame
+ Row │ v_ego    actual_lateral_accel  roll          actual_lateral_accel_tm03  actual_lateral_accel_tm02  actual_lateral_accel_tm01  actual_lateral_accel_tp03  actual_lateral_accel_tp06  actual_lateral_accel_tp10  actual_lateral_accel_tp15  roll_tm03     roll_tm02     roll_tm01     roll_tp03    roll_tp06    roll_tp10    roll_tp15    lateral_jerk
+     │ Float64  Float64               Float64?      Float64                    Float64                    Float64                    Float64?                   Float64?                   Float64?                   Float64?                   Float64?      Float64?      Float64?      Float64?     Float64?     Float64?     Float64?     Float64
+─────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1 │ 13.9564            -0.994627    0.000531481                 -0.998933                  -1.0696                    -1.10928                   -0.888186                  -0.855536                   0.0                        0.0         0.000984031   0.000655799   0.000681916  -0.001793    -0.00345843  -0.00349293  -0.00750875      3.54804
+   2 │ 17.7437            -0.0191745   0.044772                    -0.0693893                 -0.0705696                 -0.0696993                  0.0610186                  0.0136319                 -0.028035                  -0.0459503   0.0446826     0.0444643     0.0446788     0.0442296    0.0450215    0.0454224    0.0472139       2.67311
+   3 │ 18.0773            -0.672433    0.00844884                  -0.509773                  -0.563698                  -0.617848                  -0.749452                  -0.901017                  -0.976651                  -1.12299     0.0179074     0.0146816     0.0114257    -0.00172297  -0.0141576   -0.0288472   -0.0363113      -2.56732
+   4 │ 21.8569             0.163211    0.0517945                    0.162356                   0.159958                   0.159848                   0.168795                   0.209023                   0.229722                  -0.0257783   0.0507158     0.0506381     0.0511795     0.0504322    0.0481966    0.0488878    0.0477337       0.186114
+   5 │ 28.1382            -0.464031   -0.0300915                   -0.2387                    -0.236728                  -0.296819                  -0.517067                  -0.462369                  -0.0586791                 -0.329974   -0.0325775    -0.0319127    -0.0309652    -0.0275092   -0.0252121   -0.0239085   -0.0240029      -1.76789
+   6 │ 15.7371             1.05131     0.0474009                    0.740863                   0.747685                   0.834106                   1.04247                    0.910424                   0.871762                   0.835382    0.0466776     0.0468752     0.0472852     0.0475084    0.0499345    0.0576373    0.0656401      -0.29455
+   7 │ 26.0243             0.0632007   0.0345941                    0.0894921                  0.0685343                  0.0641884                  0.0369775                  0.0935071                  0.25649                    0.136773    0.0344825     0.034654      0.0347948     0.0330362    0.0349339    0.0350589    0.0373555      -0.874106
+   8 │ 20.1109             0.686233    0.0522865                    0.49087                    0.513402                   0.600144                   0.680106                   0.676623                   0.340709                   0.114449    0.0531099     0.0530941     0.052825      0.050148     0.0499792    0.0536108    0.0618684      -0.204206
+   9 │ 21.4782            -0.11712     0.0260752                   -0.116587                  -0.118361                  -0.118784                  -0.0177586                 -0.003212                   0.0160209                 -0.106463    0.0262583     0.0262923     0.0260988     0.0266603    0.0260742    0.0254965    0.025221        3.31204
+  10 │ 32.4723             0.0762298   0.00466068                  -0.0113234                  0.063586                   0.0685567                  0.0445527                 -0.324672                  -0.187302                  -1.23393     0.00112445    0.00262172    0.00376886    0.0104638    0.0194411    0.0322192    0.0385876      -1.0559
+Training data before copying symmmetric data: 10224
+Training data after copying symmmetric data: 20448
+Test data before copying symmmetric data: 2272
+Test data after copying symmmetric data: 4544
+Using device: CUDA GPU
+(20448, 18)
+(20448,)
+v_ego: n: 12496, mean: 20.684522, std: 5.577989, min: 7.255686, max: 32.502090, 25%: 16.341670, 50%: 19.024807, 75%: 25.048187
+actual_lateral_accel: n: 12496, mean: 0.085968, std: 0.740363, min: -2.304247, max: 2.235674, 25%: -0.372163, 50%: 0.039254, 75%: 0.534789
+roll: n: 12496, mean: 0.020864, std: 0.031625, min: -0.059459, max: 0.082132, 25%: -0.002156, 50%: 0.029622, 75%: 0.042050
+torque_output: n: 12496, mean: -0.004992, std: 0.244470, min: -1.000000, max: 0.869467, 25%: -0.140779, 50%: 0.009029, 75%: 0.143311
+actual_lateral_accel_tm03: n: 12496, mean: 0.075773, std: 0.701810, min: -2.058981, max: 2.429220, 25%: -0.319261, 50%: 0.026191, 75%: 0.425339
+actual_lateral_accel_tm02: n: 12496, mean: 0.075536, std: 0.704558, min: -1.935555, max: 2.326677, 25%: -0.342013, 50%: 0.032822, 75%: 0.469952
+actual_lateral_accel_tm01: n: 12496, mean: 0.078089, std: 0.706927, min: -1.909675, max: 2.233235, 25%: -0.357572, 50%: 0.037431, 75%: 0.500930
+actual_lateral_accel_tp03: n: 12496, mean: 0.084391, std: 0.741104, min: -2.261995, max: 2.262135, 25%: -0.365360, 50%: 0.033092, 75%: 0.548990
+actual_lateral_accel_tp06: n: 12496, mean: 0.079278, std: 0.702277, min: -2.500586, max: 2.733840, 25%: -0.309447, 50%: 0.020733, 75%: 0.462278
+actual_lateral_accel_tp10: n: 12496, mean: 0.061740, std: 0.669714, min: -2.415278, max: 3.213943, 25%: -0.259343, 50%: 0.005913, 75%: 0.386312
+actual_lateral_accel_tp15: n: 12496, mean: 0.042377, std: 0.638477, min: -2.402219, max: 3.873347, 25%: -0.267835, 50%: 0.000000, 75%: 0.327175
+roll_tm03: n: 12496, mean: 0.021034, std: 0.031766, min: -0.059384, max: 0.084011, 25%: -0.001881, 50%: 0.029388, 75%: 0.041805
+roll_tm02: n: 12496, mean: 0.020916, std: 0.031745, min: -0.059459, max: 0.084011, 25%: -0.001822, 50%: 0.029367, 75%: 0.041698
+roll_tm01: n: 12496, mean: 0.020901, std: 0.031673, min: -0.059103, max: 0.083316, 25%: -0.001590, 50%: 0.029607, 75%: 0.041909
+roll_tp03: n: 12496, mean: 0.020648, std: 0.031462, min: -0.059097, max: 0.080770, 25%: -0.000897, 50%: 0.029014, 75%: 0.041730
+roll_tp06: n: 12496, mean: 0.020563, std: 0.031321, min: -0.059103, max: 0.081043, 25%: -0.000710, 50%: 0.029099, 75%: 0.041593
+roll_tp10: n: 12496, mean: 0.020538, std: 0.031115, min: -0.058908, max: 0.081083, 25%: -0.000839, 50%: 0.029291, 75%: 0.041591
+roll_tp15: n: 12496, mean: 0.020937, std: 0.030788, min: -0.059315, max: 0.085771, 25%: -0.000412, 50%: 0.029381, 75%: 0.041721
+lateral_jerk: n: 12496, mean: -0.052588, std: 2.698262, min: -4.999140, max: 4.999085, 25%: -2.113942, 50%: 0.000000, 75%: 1.984640
+15:28:06 Epoch   1 of 10000 (estimating remaining time...); Loss: 0.082381, ΔLoss: -Inf, ΔΔLoss: -Inf, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:07 Epoch  50 of 10000 (estimating remaining time...); Loss: 0.023765, ΔLoss: -0.0586164, ΔΔLoss: Inf, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:07 Epoch 100 of 10000 (estimating remaining time...); Loss: 0.021780, ΔLoss: -0.0019846, ΔΔLoss: 0.056631811, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:07 Epoch 150 of 10000 (estimating remaining time...); Loss: 0.021003, ΔLoss: -0.0007771, ΔΔLoss: 0.001207514, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:07 Epoch 200 of 10000 (estimating remaining time...); Loss: 0.020353, ΔLoss: -0.0006497, ΔΔLoss: 0.000127371, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:07 Epoch 250 of 10000 (estimating remaining time...); Loss: 0.019778, ΔLoss: -0.0005756, ΔΔLoss: 0.000074072, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 300 of 10000 (estimating remaining time...); Loss: 0.019264, ΔLoss: -0.0005139, ΔΔLoss: 0.000061683, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 350 of 10000 (estimating remaining time...); Loss: 0.018810, ΔLoss: -0.0004539, ΔΔLoss: 0.000060085, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 400 of 10000 (estimating remaining time...); Loss: 0.018418, ΔLoss: -0.0003922, ΔΔLoss: 0.000061644, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 450 of 10000 (estimating remaining time...); Loss: 0.018087, ΔLoss: -0.0003301, ΔΔLoss: 0.000062106, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 500 of 10000 (estimating remaining time...); Loss: 0.017817, ΔLoss: -0.0002707, ΔΔLoss: 0.000059428, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 550 of 10000 (21 seconds remaining of 1 minute, 9 seconds total); Loss: 0.017600, ΔLoss: -0.0002171, ΔΔLoss: 0.000053596, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:08 Epoch 600 of 10000 (46 seconds remaining of 1 minute, 34 seconds total); Loss: 0.017476, ΔLoss: -0.0001234, ΔΔLoss: 0.000093665, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 650 of 10000 (21 seconds remaining of 1 minute, 9 seconds total); Loss: 0.017300, ΔLoss: -0.0001767, ΔΔLoss: -0.000053233, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 700 of 10000 (28 seconds remaining of 1 minute, 16 seconds total); Loss: 0.017196, ΔLoss: -0.0001040, ΔΔLoss: 0.000072671, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 750 of 10000 (21 seconds remaining of 1 minute, 10 seconds total); Loss: 0.017112, ΔLoss: -0.0000834, ΔΔLoss: 0.000020547, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 800 of 10000 (21 seconds remaining of 1 minute, 10 seconds total); Loss: 0.017046, ΔLoss: -0.0000662, ΔΔLoss: 0.000017216, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 850 of 10000 (25 seconds remaining of 1 minute, 14 seconds total); Loss: 0.017056, ΔLoss: 0.0000104, ΔΔLoss: 0.000076607, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 900 of 10000 (20 seconds remaining of 1 minute, 9 seconds total); Loss: 0.016938, ΔLoss: -0.0001186, ΔΔLoss: -0.000128999, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 950 of 10000 (26 seconds remaining of 1 minute, 15 seconds total); Loss: 0.016892, ΔLoss: -0.0000456, ΔΔLoss: 0.000073014, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:09 Epoch 1000 of 10000 (21 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016851, ΔLoss: -0.0000407, ΔΔLoss: 0.000004882, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1050 of 10000 (25 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016813, ΔLoss: -0.0000380, ΔΔLoss: 0.000002733, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1100 of 10000 (20 seconds remaining of 1 minute, 9 seconds total); Loss: 0.016778, ΔLoss: -0.0000359, ΔΔLoss: 0.000002066, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1150 of 10000 (25 seconds remaining of 1 minute, 15 seconds total); Loss: 0.016743, ΔLoss: -0.0000343, ΔΔLoss: 0.000001660, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1200 of 10000 (20 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016711, ΔLoss: -0.0000323, ΔΔLoss: 0.000001911, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1250 of 10000 (20 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016697, ΔLoss: -0.0000137, ΔΔLoss: 0.000018682, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1300 of 10000 (24 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016669, ΔLoss: -0.0000285, ΔΔLoss: -0.000014825, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1350 of 10000 (20 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016620, ΔLoss: -0.0000487, ΔΔLoss: -0.000020232, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:10 Epoch 1400 of 10000 (24 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016591, ΔLoss: -0.0000292, ΔΔLoss: 0.000019560, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1450 of 10000 (19 seconds remaining of 1 minute, 9 seconds total); Loss: 0.016563, ΔLoss: -0.0000277, ΔΔLoss: 0.000001466, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1500 of 10000 (24 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016536, ΔLoss: -0.0000270, ΔΔLoss: 0.000000706, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1550 of 10000 (19 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016510, ΔLoss: -0.0000264, ΔΔLoss: 0.000000631, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1600 of 10000 (24 seconds remaining of 1 minute, 15 seconds total); Loss: 0.016484, ΔLoss: -0.0000258, ΔΔLoss: 0.000000598, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1650 of 10000 (19 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016459, ΔLoss: -0.0000252, ΔΔLoss: 0.000000583, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1700 of 10000 (19 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016434, ΔLoss: -0.0000245, ΔΔLoss: 0.000000682, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1750 of 10000 (23 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016413, ΔLoss: -0.0000217, ΔΔLoss: 0.000002764, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:11 Epoch 1800 of 10000 (19 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016420, ΔLoss: 0.0000076, ΔΔLoss: 0.000029288, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 1850 of 10000 (23 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016373, ΔLoss: -0.0000468, ΔΔLoss: -0.000054376, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 1900 of 10000 (18 seconds remaining of 1 minute, 9 seconds total); Loss: 0.016343, ΔLoss: -0.0000306, ΔΔLoss: 0.000016205, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 1950 of 10000 (22 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016321, ΔLoss: -0.0000220, ΔΔLoss: 0.000008604, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 2000 of 10000 (18 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016300, ΔLoss: -0.0000211, ΔΔLoss: 0.000000894, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 2050 of 10000 (22 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016279, ΔLoss: -0.0000207, ΔΔLoss: 0.000000458, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 2100 of 10000 (18 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016259, ΔLoss: -0.0000202, ΔΔLoss: 0.000000412, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 2150 of 10000 (18 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016239, ΔLoss: -0.0000199, ΔΔLoss: 0.000000380, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:12 Epoch 2200 of 10000 (22 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016219, ΔLoss: -0.0000195, ΔΔLoss: 0.000000371, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2250 of 10000 (18 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016200, ΔLoss: -0.0000191, ΔΔLoss: 0.000000400, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2300 of 10000 (22 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016182, ΔLoss: -0.0000180, ΔΔLoss: 0.000001092, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2350 of 10000 (18 seconds remaining of 1 minute, 11 seconds total); Loss: 0.016176, ΔLoss: -0.0000061, ΔΔLoss: 0.000011856, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2400 of 10000 (21 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016170, ΔLoss: -0.0000058, ΔΔLoss: 0.000000365, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2450 of 10000 (18 seconds remaining of 1 minute, 11 seconds total); Loss: 0.016130, ΔLoss: -0.0000407, ΔΔLoss: -0.000034936, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2500 of 10000 (21 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016110, ΔLoss: -0.0000196, ΔΔLoss: 0.000021093, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2550 of 10000 (17 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016093, ΔLoss: -0.0000174, ΔΔLoss: 0.000002224, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:13 Epoch 2600 of 10000 (17 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016076, ΔLoss: -0.0000171, ΔΔLoss: 0.000000332, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2650 of 10000 (20 seconds remaining of 1 minute, 13 seconds total); Loss: 0.016059, ΔLoss: -0.0000169, ΔΔLoss: 0.000000164, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2700 of 10000 (17 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016042, ΔLoss: -0.0000168, ΔΔLoss: 0.000000129, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2750 of 10000 (20 seconds remaining of 1 minute, 14 seconds total); Loss: 0.016025, ΔLoss: -0.0000167, ΔΔLoss: 0.000000114, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2800 of 10000 (16 seconds remaining of 1 minute, 10 seconds total); Loss: 0.016009, ΔLoss: -0.0000166, ΔΔLoss: 0.000000095, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2850 of 10000 (20 seconds remaining of 1 minute, 14 seconds total); Loss: 0.015992, ΔLoss: -0.0000164, ΔΔLoss: 0.000000138, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2900 of 10000 (16 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015977, ΔLoss: -0.0000157, ΔΔLoss: 0.000000693, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 2950 of 10000 (19 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015969, ΔLoss: -0.0000079, ΔΔLoss: 0.000007862, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:14 Epoch 3000 of 10000 (16 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015972, ΔLoss: 0.0000032, ΔΔLoss: 0.000011105, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3050 of 10000 (16 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015932, ΔLoss: -0.0000403, ΔΔLoss: -0.000043562, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3100 of 10000 (19 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015912, ΔLoss: -0.0000200, ΔΔLoss: 0.000020299, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3150 of 10000 (15 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015895, ΔLoss: -0.0000164, ΔΔLoss: 0.000003625, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3200 of 10000 (18 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015879, ΔLoss: -0.0000161, ΔΔLoss: 0.000000313, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3250 of 10000 (15 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015863, ΔLoss: -0.0000161, ΔΔLoss: 0.000000026, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3300 of 10000 (18 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015847, ΔLoss: -0.0000161, ΔΔLoss: -0.000000017, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3350 of 10000 (15 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015831, ΔLoss: -0.0000161, ΔΔLoss: -0.000000019, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:15 Epoch 3400 of 10000 (18 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015815, ΔLoss: -0.0000161, ΔΔLoss: -0.000000011, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3450 of 10000 (15 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015799, ΔLoss: -0.0000161, ΔΔLoss: 0.000000035, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3500 of 10000 (15 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015783, ΔLoss: -0.0000156, ΔΔLoss: 0.000000488, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3550 of 10000 (18 seconds remaining of 1 minute, 14 seconds total); Loss: 0.015773, ΔLoss: -0.0000098, ΔΔLoss: 0.000005743, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3600 of 10000 (14 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015781, ΔLoss: 0.0000081, ΔΔLoss: 0.000017954, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3650 of 10000 (17 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015741, ΔLoss: -0.0000400, ΔΔLoss: -0.000048138, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3700 of 10000 (14 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015719, ΔLoss: -0.0000222, ΔΔLoss: 0.000017831, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3750 of 10000 (17 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015703, ΔLoss: -0.0000165, ΔΔLoss: 0.000005681, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:16 Epoch 3800 of 10000 (14 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015687, ΔLoss: -0.0000160, ΔΔLoss: 0.000000548, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 3850 of 10000 (17 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015671, ΔLoss: -0.0000159, ΔΔLoss: 0.000000095, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 3900 of 10000 (14 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015655, ΔLoss: -0.0000158, ΔΔLoss: 0.000000045, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 3950 of 10000 (14 seconds remaining of 1 minute, 11 seconds total); Loss: 0.015639, ΔLoss: -0.0000158, ΔΔLoss: 0.000000050, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 4000 of 10000 (16 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015623, ΔLoss: -0.0000157, ΔΔLoss: 0.000000090, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 4050 of 10000 (13 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015608, ΔLoss: -0.0000154, ΔΔLoss: 0.000000334, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 4100 of 10000 (16 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015596, ΔLoss: -0.0000123, ΔΔLoss: 0.000003015, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 4150 of 10000 (13 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015604, ΔLoss: 0.0000085, ΔΔLoss: 0.000020874, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:17 Epoch 4200 of 10000 (16 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015576, ΔLoss: -0.0000285, ΔΔLoss: -0.000037020, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4250 of 10000 (13 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015548, ΔLoss: -0.0000281, ΔΔLoss: 0.000000431, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4300 of 10000 (15 seconds remaining of 1 minute, 12 seconds total); Loss: 0.015531, ΔLoss: -0.0000164, ΔΔLoss: 0.000011624, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4350 of 10000 (13 seconds remaining of 1 minute, 11 seconds total); Loss: 0.015516, ΔLoss: -0.0000152, ΔΔLoss: 0.000001256, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4400 of 10000 (13 seconds remaining of 1 minute, 11 seconds total); Loss: 0.015501, ΔLoss: -0.0000150, ΔΔLoss: 0.000000225, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4450 of 10000 (15 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015486, ΔLoss: -0.0000148, ΔΔLoss: 0.000000116, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4500 of 10000 (12 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015471, ΔLoss: -0.0000147, ΔΔLoss: 0.000000113, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4550 of 10000 (15 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015457, ΔLoss: -0.0000146, ΔΔLoss: 0.000000169, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:18 Epoch 4600 of 10000 (12 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015443, ΔLoss: -0.0000139, ΔΔLoss: 0.000000611, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4650 of 10000 (14 seconds remaining of 1 minute, 12 seconds total); Loss: 0.015434, ΔLoss: -0.0000087, ΔΔLoss: 0.000005291, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4700 of 10000 (12 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015446, ΔLoss: 0.0000117, ΔΔLoss: 0.000020309, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4750 of 10000 (14 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015409, ΔLoss: -0.0000366, ΔΔLoss: -0.000048248, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4800 of 10000 (12 seconds remaining of 1 minute, 11 seconds total); Loss: 0.015387, ΔLoss: -0.0000226, ΔΔLoss: 0.000013982, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4850 of 10000 (12 seconds remaining of 1 minute, 11 seconds total); Loss: 0.015372, ΔLoss: -0.0000148, ΔΔLoss: 0.000007839, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4900 of 10000 (14 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015358, ΔLoss: -0.0000139, ΔΔLoss: 0.000000909, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 4950 of 10000 (11 seconds remaining of 1 minute, 10 seconds total); Loss: 0.015344, ΔLoss: -0.0000137, ΔΔLoss: 0.000000212, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:19 Epoch 5000 of 10000 (14 seconds remaining of 1 minute, 13 seconds total); Loss: 0.015331, ΔLoss: -0.0000135, ΔΔLoss: 0.000000133, λ: 0, λ_monotonic: 0, λ_odd: 0, λ_origin: 0
+15:28:23 Epoch 5050 of 10000 (6 minutes, 21 seconds remaining of 7 minutes, 24 seconds total); Loss: 0.015323, ΔLoss: -0.0000079, ΔΔLoss: 0.000005636, λ: 0, λ_monotonic: 0, λ_odd: 1.25E-08, λ_origin: 0
+15:28:23 Epoch 5100 of 10000 (14 seconds remaining of 1 minute, 17 seconds total); Loss: 0.015316, ΔLoss: -0.0000076, ΔΔLoss: 0.000000291, λ: 0, λ_monotonic: 0, λ_odd: 2.5E-08, λ_origin: 0
+15:28:24 Epoch 5150 of 10000 (17 seconds remaining of 1 minute, 20 seconds total); Loss: 0.015309, ΔLoss: -0.0000062, ΔΔLoss: 0.000001345, λ: 0, λ_monotonic: 0, λ_odd: 3.75E-08, λ_origin: 0
+15:28:24 Epoch 5200 of 10000 (13 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015314, ΔLoss: 0.0000047, ΔΔLoss: 0.000010915, λ: 0, λ_monotonic: 0, λ_odd: 5E-08, λ_origin: 0
+15:28:24 Epoch 5250 of 10000 (16 seconds remaining of 1 minute, 20 seconds total); Loss: 0.015323, ΔLoss: 0.0000087, ΔΔLoss: 0.000004058, λ: 0, λ_monotonic: 0, λ_odd: 6.25E-08, λ_origin: 0
+15:28:24 Epoch 5300 of 10000 (12 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015291, ΔLoss: -0.0000315, ΔΔLoss: -0.000040196, λ: 0, λ_monotonic: 0, λ_odd: 7.5E-08, λ_origin: 0
+15:28:24 Epoch 5350 of 10000 (15 seconds remaining of 1 minute, 19 seconds total); Loss: 0.015279, ΔLoss: -0.0000117, ΔΔLoss: 0.000019734, λ: 0, λ_monotonic: 0, λ_odd: 8.75E-08, λ_origin: 0
+15:28:24 Epoch 5400 of 10000 (12 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015272, ΔLoss: -0.0000075, ΔΔLoss: 0.000004226, λ: 0, λ_monotonic: 0, λ_odd: 1E-07, λ_origin: 0
+15:28:24 Epoch 5450 of 10000 (14 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015265, ΔLoss: -0.0000069, ΔΔLoss: 0.000000623, λ: 0, λ_monotonic: 0, λ_odd: 1.125E-07, λ_origin: 0
+15:28:25 Epoch 5500 of 10000 (12 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015258, ΔLoss: -0.0000067, ΔΔLoss: 0.000000218, λ: 0, λ_monotonic: 0, λ_odd: 1.25E-07, λ_origin: 0
+15:28:25 Epoch 5550 of 10000 (14 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015252, ΔLoss: -0.0000065, ΔΔLoss: 0.000000170, λ: 0, λ_monotonic: 0, λ_odd: 1.375E-07, λ_origin: 0
+15:28:25 Epoch 5600 of 10000 (11 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015246, ΔLoss: -0.0000063, ΔΔLoss: 0.000000209, λ: 0, λ_monotonic: 0, λ_odd: 1.5E-07, λ_origin: 0
+15:28:25 Epoch 5650 of 10000 (11 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015240, ΔLoss: -0.0000058, ΔΔLoss: 0.000000505, λ: 0, λ_monotonic: 0, λ_odd: 1.625E-07, λ_origin: 0
+15:28:25 Epoch 5700 of 10000 (13 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015237, ΔLoss: -0.0000030, ΔΔLoss: 0.000002804, λ: 0, λ_monotonic: 0, λ_odd: 1.75E-07, λ_origin: 0
+15:28:25 Epoch 5750 of 10000 (11 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015251, ΔLoss: 0.0000139, ΔΔLoss: 0.000016892, λ: 0, λ_monotonic: 0, λ_odd: 1.875E-07, λ_origin: 0
+15:28:25 Epoch 5800 of 10000 (13 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015244, ΔLoss: -0.0000065, ΔΔLoss: -0.000020362, λ: 0, λ_monotonic: 0, λ_odd: 2E-07, λ_origin: 0
+15:28:26 Epoch 5850 of 10000 (11 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015220, ΔLoss: -0.0000247, ΔΔLoss: -0.000018234, λ: 0, λ_monotonic: 0, λ_odd: 2.125E-07, λ_origin: 0
+15:28:26 Epoch 5900 of 10000 (13 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015211, ΔLoss: -0.0000086, ΔΔLoss: 0.000016064, λ: 0, λ_monotonic: 0, λ_odd: 2.25E-07, λ_origin: 0
+15:28:26 Epoch 5950 of 10000 (10 seconds remaining of 1 minute, 16 seconds total); Loss: 0.015205, ΔLoss: -0.0000059, ΔΔLoss: 0.000002724, λ: 0, λ_monotonic: 0, λ_odd: 2.375E-07, λ_origin: 0
+15:28:26 Epoch 6000 of 10000 (12 seconds remaining of 1 minute, 18 seconds total); Loss: 0.015200, ΔLoss: -0.0000054, ΔΔLoss: 0.000000523, λ: 0, λ_monotonic: 0, λ_odd: 2.5E-07, λ_origin: 0
+15:28:29 Epoch 6050 of 10000 (4 minutes, 25 seconds remaining of 5 minutes, 34 seconds total); Loss: 0.021068, ΔLoss: 0.0058684, ΔΔLoss: 0.005873802, λ: 0, λ_monotonic: 2.5E-05, λ_odd: 2.625E-07, λ_origin: 0
+15:28:30 Epoch 6100 of 10000 (17 seconds remaining of 1 minute, 26 seconds total); Loss: 0.027024, ΔLoss: 0.0059563, ΔΔLoss: 0.000087880, λ: 0, λ_monotonic: 5E-05, λ_odd: 2.75E-07, λ_origin: 0
+15:28:30 Epoch 6150 of 10000 (13 seconds remaining of 1 minute, 22 seconds total); Loss: 0.033070, ΔLoss: 0.0060452, ΔΔLoss: 0.000088867, λ: 0, λ_monotonic: 7.5E-05, λ_odd: 2.875E-07, λ_origin: 0
+15:28:30 Epoch 6200 of 10000 (17 seconds remaining of 1 minute, 27 seconds total); Loss: 0.039205, ΔLoss: 0.0061351, ΔΔLoss: 0.000089938, λ: 0, λ_monotonic: 0.0001, λ_odd: 3E-07, λ_origin: 0
+15:28:30 Epoch 6250 of 10000 (13 seconds remaining of 1 minute, 23 seconds total); Loss: 0.045433, ΔLoss: 0.0062281, ΔΔLoss: 0.000092976, λ: 0, λ_monotonic: 0.000125, λ_odd: 3.125E-07, λ_origin: 0
+15:28:30 Epoch 6300 of 10000 (15 seconds remaining of 1 minute, 25 seconds total); Loss: 0.051762, ΔLoss: 0.0063295, ΔΔLoss: 0.000101410, λ: 0, λ_monotonic: 0.00015, λ_odd: 3.25E-07, λ_origin: 0
+15:28:30 Epoch 6350 of 10000 (12 seconds remaining of 1 minute, 22 seconds total); Loss: 0.058146, ΔLoss: 0.0063841, ΔΔLoss: 0.000054572, λ: 0, λ_monotonic: 0.000175, λ_odd: 3.375E-07, λ_origin: 0
+15:28:31 Epoch 6400 of 10000 (15 seconds remaining of 1 minute, 25 seconds total); Loss: 0.064629, ΔLoss: 0.0064829, ΔΔLoss: 0.000098825, λ: 0, λ_monotonic: 0.0002, λ_odd: 3.5E-07, λ_origin: 0
+15:28:31 Epoch 6450 of 10000 (12 seconds remaining of 1 minute, 23 seconds total); Loss: 0.071214, ΔLoss: 0.0065852, ΔΔLoss: 0.000102308, λ: 0, λ_monotonic: 0.000225, λ_odd: 3.625E-07, λ_origin: 0
+15:28:31 Epoch 6500 of 10000 (12 seconds remaining of 1 minute, 23 seconds total); Loss: 0.077894, ΔLoss: 0.0066792, ΔΔLoss: 0.000094019, λ: 0, λ_monotonic: 0.00025, λ_odd: 3.75E-07, λ_origin: 0
+15:28:31 Epoch 6550 of 10000 (14 seconds remaining of 1 minute, 25 seconds total); Loss: 0.084667, ΔLoss: 0.0067734, ΔΔLoss: 0.000094198, λ: 0, λ_monotonic: 0.000275, λ_odd: 3.875E-07, λ_origin: 0
+15:28:31 Epoch 6600 of 10000 (12 seconds remaining of 1 minute, 23 seconds total); Loss: 0.091536, ΔLoss: 0.0068684, ΔΔLoss: 0.000095017, λ: 0, λ_monotonic: 0.0003, λ_odd: 4E-07, λ_origin: 0
+15:28:32 Epoch 6650 of 10000 (14 seconds remaining of 1 minute, 25 seconds total); Loss: 0.098500, ΔLoss: 0.0069643, ΔΔLoss: 0.000095896, λ: 0, λ_monotonic: 0.000325, λ_odd: 4.125E-07, λ_origin: 0
+15:28:32 Epoch 6700 of 10000 (11 seconds remaining of 1 minute, 23 seconds total); Loss: 0.105561, ΔLoss: 0.0070608, ΔΔLoss: 0.000096425, λ: 0, λ_monotonic: 0.00035, λ_odd: 4.25E-07, λ_origin: 0
+15:28:32 Epoch 6750 of 10000 (14 seconds remaining of 1 minute, 26 seconds total); Loss: 0.112718, ΔLoss: 0.0071571, ΔΔLoss: 0.000096329, λ: 0, λ_monotonic: 0.000375, λ_odd: 4.375E-07, λ_origin: 0
+15:28:32 Epoch 6800 of 10000 (11 seconds remaining of 1 minute, 23 seconds total); Loss: 0.119971, ΔLoss: 0.0072531, ΔΔLoss: 0.000096001, λ: 0, λ_monotonic: 0.0004, λ_odd: 4.5E-07, λ_origin: 0
+15:28:32 Epoch 6850 of 10000 (13 seconds remaining of 1 minute, 25 seconds total); Loss: 0.127312, ΔLoss: 0.0073416, ΔΔLoss: 0.000088520, λ: 0, λ_monotonic: 0.000425, λ_odd: 4.625E-07, λ_origin: 0
+15:28:33 Epoch 6900 of 10000 (11 seconds remaining of 1 minute, 23 seconds total); Loss: 0.134729, ΔLoss: 0.0074169, ΔΔLoss: 0.000075251, λ: 0, λ_monotonic: 0.00045, λ_odd: 4.75E-07, λ_origin: 0
+15:28:33 Epoch 6950 of 10000 (13 seconds remaining of 1 minute, 25 seconds total); Loss: 0.142267, ΔLoss: 0.0075375, ΔΔLoss: 0.000120670, λ: 0, λ_monotonic: 0.000475, λ_odd: 4.875E-07, λ_origin: 0
+15:28:33 Epoch 7000 of 10000 (10 seconds remaining of 1 minute, 23 seconds total); Loss: 0.149908, ΔLoss: 0.0076407, ΔΔLoss: 0.000103220, λ: 0, λ_monotonic: 0.0005, λ_odd: 5E-07, λ_origin: 0
+15:28:34 Epoch 7050 of 10000 (42 seconds remaining of 1 minute, 55 seconds total); Loss: 0.157649, ΔLoss: 0.0077412, ΔΔLoss: 0.000100419, λ: 0, λ_monotonic: 0.000525, λ_odd: 5.125E-07, λ_origin: 2.5E-06
+15:28:34 Epoch 7100 of 10000 (13 seconds remaining of 1 minute, 27 seconds total); Loss: 0.165492, ΔLoss: 0.0078429, ΔΔLoss: 0.000101775, λ: 0, λ_monotonic: 0.00055, λ_odd: 5.25E-07, λ_origin: 5E-06
+15:28:34 Epoch 7150 of 10000 (10 seconds remaining of 1 minute, 24 seconds total); Loss: 0.173438, ΔLoss: 0.0079460, ΔΔLoss: 0.000103027, λ: 0, λ_monotonic: 0.000575, λ_odd: 5.375E-07, λ_origin: 7.5E-06
+15:28:34 Epoch 7200 of 10000 (10 seconds remaining of 1 minute, 24 seconds total); Loss: 0.181487, ΔLoss: 0.0080496, ΔΔLoss: 0.000103638, λ: 0, λ_monotonic: 0.0006, λ_odd: 5.5E-07, λ_origin: 1E-05
+15:28:34 Epoch 7250 of 10000 (12 seconds remaining of 1 minute, 26 seconds total); Loss: 0.189640, ΔLoss: 0.0081524, ΔΔLoss: 0.000102773, λ: 0, λ_monotonic: 0.000625, λ_odd: 5.625E-07, λ_origin: 1.25E-05
+15:28:35 Epoch 7300 of 10000 (10 seconds remaining of 1 minute, 24 seconds total); Loss: 0.197891, ΔLoss: 0.0082516, ΔΔLoss: 0.000099227, λ: 0, λ_monotonic: 0.00065, λ_odd: 5.75E-07, λ_origin: 1.5E-05
+15:28:35 Epoch 7350 of 10000 (11 seconds remaining of 1 minute, 26 seconds total); Loss: 0.206233, ΔLoss: 0.0083419, ΔΔLoss: 0.000090301, λ: 0, λ_monotonic: 0.000675, λ_odd: 5.875E-07, λ_origin: 1.75E-05
+15:28:35 Epoch 7400 of 10000 (9 seconds remaining of 1 minute, 24 seconds total); Loss: 0.214654, ΔLoss: 0.0084207, ΔΔLoss: 0.000078768, λ: 0, λ_monotonic: 0.0007, λ_odd: 6E-07, λ_origin: 2E-05
+15:28:35 Epoch 7450 of 10000 (11 seconds remaining of 1 minute, 26 seconds total); Loss: 0.223200, ΔLoss: 0.0085463, ΔΔLoss: 0.000125602, λ: 0, λ_monotonic: 0.000725, λ_odd: 6.125E-07, λ_origin: 2.25E-05
+15:28:35 Epoch 7500 of 10000 (9 seconds remaining of 1 minute, 24 seconds total); Loss: 0.231864, ΔLoss: 0.0086642, ΔΔLoss: 0.000117913, λ: 0, λ_monotonic: 0.00075, λ_odd: 6.25E-07, λ_origin: 2.5E-05
+15:28:36 Epoch 7550 of 10000 (10 seconds remaining of 1 minute, 25 seconds total); Loss: 0.240633, ΔLoss: 0.0087689, ΔΔLoss: 0.000104740, λ: 0, λ_monotonic: 0.000775, λ_odd: 6.375E-07, λ_origin: 2.75E-05
+15:28:36 Epoch 7600 of 10000 (8 seconds remaining of 1 minute, 24 seconds total); Loss: 0.249509, ΔLoss: 0.0088755, ΔΔLoss: 0.000106573, λ: 0, λ_monotonic: 0.0008, λ_odd: 6.5E-07, λ_origin: 3E-05
+15:28:36 Epoch 7650 of 10000 (10 seconds remaining of 1 minute, 26 seconds total); Loss: 0.258492, ΔLoss: 0.0089831, ΔΔLoss: 0.000107557, λ: 0, λ_monotonic: 0.000825, λ_odd: 6.625E-07, λ_origin: 3.25E-05
+15:28:36 Epoch 7700 of 10000 (8 seconds remaining of 1 minute, 24 seconds total); Loss: 0.267584, ΔLoss: 0.0090919, ΔΔLoss: 0.000108793, λ: 0, λ_monotonic: 0.00085, λ_odd: 6.75E-07, λ_origin: 3.5E-05
+15:28:36 Epoch 7750 of 10000 (10 seconds remaining of 1 minute, 26 seconds total); Loss: 0.276783, ΔLoss: 0.0091991, ΔΔLoss: 0.000107199, λ: 0, λ_monotonic: 0.000875, λ_odd: 6.875E-07, λ_origin: 3.75E-05
+15:28:37 Epoch 7800 of 10000 (8 seconds remaining of 1 minute, 24 seconds total); Loss: 0.286084, ΔLoss: 0.0093014, ΔΔLoss: 0.000102341, λ: 0, λ_monotonic: 0.0009, λ_odd: 7E-07, λ_origin: 4E-05
+15:28:37 Epoch 7850 of 10000 (9 seconds remaining of 1 minute, 26 seconds total); Loss: 0.295473, ΔLoss: 0.0093889, ΔΔLoss: 0.000087470, λ: 0, λ_monotonic: 0.000925, λ_odd: 7.125E-07, λ_origin: 4.25E-05
+15:28:37 Epoch 7900 of 10000 (7 seconds remaining of 1 minute, 24 seconds total); Loss: 0.304935, ΔLoss: 0.0094616, ΔΔLoss: 0.000072747, λ: 0, λ_monotonic: 0.00095, λ_odd: 7.25E-07, λ_origin: 4.5E-05
+15:28:37 Epoch 7950 of 10000 (9 seconds remaining of 1 minute, 26 seconds total); Loss: 0.314521, ΔLoss: 0.0095862, ΔΔLoss: 0.000124633, λ: 0, λ_monotonic: 0.000975, λ_odd: 7.375E-07, λ_origin: 4.75E-05
+15:28:37 Epoch 8000 of 10000 (7 seconds remaining of 1 minute, 24 seconds total); Loss: 0.324243, ΔLoss: 0.0097221, ΔΔLoss: 0.000135899, λ: 0, λ_monotonic: 0.001, λ_odd: 7.5E-07, λ_origin: 5E-05
+15:28:38 Epoch 8050 of 10000 (8 seconds remaining of 1 minute, 25 seconds total); Loss: 0.334069, ΔLoss: 0.0098265, ΔΔLoss: 0.000104308, λ: 0, λ_monotonic: 0.001025, λ_odd: 7.625E-07, λ_origin: 5.25E-05
+15:28:38 Epoch 8100 of 10000 (7 seconds remaining of 1 minute, 24 seconds total); Loss: 0.344001, ΔLoss: 0.0099319, ΔΔLoss: 0.000105441, λ: 0, λ_monotonic: 0.00105, λ_odd: 7.75E-07, λ_origin: 5.5E-05
+15:28:38 Epoch 8150 of 10000 (8 seconds remaining of 1 minute, 26 seconds total); Loss: 0.354042, ΔLoss: 0.0100405, ΔΔLoss: 0.000108570, λ: 0, λ_monotonic: 0.001075, λ_odd: 7.875E-07, λ_origin: 5.75E-05
+15:28:38 Epoch 8200 of 10000 (6 seconds remaining of 1 minute, 24 seconds total); Loss: 0.364191, ΔLoss: 0.0101490, ΔΔLoss: 0.000108540, λ: 0, λ_monotonic: 0.0011, λ_odd: 8E-07, λ_origin: 6E-05
+15:28:38 Epoch 8250 of 10000 (7 seconds remaining of 1 minute, 25 seconds total); Loss: 0.374447, ΔLoss: 0.0102561, ΔΔLoss: 0.000107110, λ: 0, λ_monotonic: 0.001125, λ_odd: 8.125E-07, λ_origin: 6.25E-05
+15:28:39 Epoch 8300 of 10000 (6 seconds remaining of 1 minute, 24 seconds total); Loss: 0.384805, ΔLoss: 0.0103581, ΔΔLoss: 0.000101984, λ: 0, λ_monotonic: 0.00115, λ_odd: 8.25E-07, λ_origin: 6.5E-05
+15:28:39 Epoch 8350 of 10000 (7 seconds remaining of 1 minute, 25 seconds total); Loss: 0.395247, ΔLoss: 0.0104424, ΔΔLoss: 0.000084311, λ: 0, λ_monotonic: 0.001175, λ_odd: 8.375E-07, λ_origin: 6.75E-05
+15:28:39 Epoch 8400 of 10000 (6 seconds remaining of 1 minute, 25 seconds total); Loss: 0.405747, ΔLoss: 0.0104995, ΔΔLoss: 0.000057101, λ: 0, λ_monotonic: 0.0012, λ_odd: 8.5E-07, λ_origin: 7E-05
+15:28:39 Epoch 8450 of 10000 (7 seconds remaining of 1 minute, 26 seconds total); Loss: 0.416361, ΔLoss: 0.0106137, ΔΔLoss: 0.000114173, λ: 0, λ_monotonic: 0.001225, λ_odd: 8.625E-07, λ_origin: 7.25E-05
+15:28:39 Epoch 8500 of 10000 (5 seconds remaining of 1 minute, 24 seconds total); Loss: 0.427129, ΔLoss: 0.0107688, ΔΔLoss: 0.000155151, λ: 0, λ_monotonic: 0.00125, λ_odd: 8.75E-07, λ_origin: 7.5E-05
+15:28:40 Epoch 8550 of 10000 (6 seconds remaining of 1 minute, 25 seconds total); Loss: 0.438000, ΔLoss: 0.0108702, ΔΔLoss: 0.000101417, λ: 0, λ_monotonic: 0.001275, λ_odd: 8.875E-07, λ_origin: 7.75E-05
+15:28:40 Epoch 8600 of 10000 (5 seconds remaining of 1 minute, 24 seconds total); Loss: 0.448968, ΔLoss: 0.0109686, ΔΔLoss: 0.000098348, λ: 0, λ_monotonic: 0.0013, λ_odd: 9E-07, λ_origin: 8E-05
+15:28:40 Epoch 8650 of 10000 (6 seconds remaining of 1 minute, 26 seconds total); Loss: 0.460039, ΔLoss: 0.0110707, ΔΔLoss: 0.000102103, λ: 0, λ_monotonic: 0.001325, λ_odd: 9.125E-07, λ_origin: 8.25E-05
+15:28:40 Epoch 8700 of 10000 (5 seconds remaining of 1 minute, 25 seconds total); Loss: 0.471213, ΔLoss: 0.0111741, ΔΔLoss: 0.000103444, λ: 0, λ_monotonic: 0.00135, λ_odd: 9.25E-07, λ_origin: 8.5E-05
+15:28:40 Epoch 8750 of 10000 (5 seconds remaining of 1 minute, 25 seconds total); Loss: 0.482489, ΔLoss: 0.0112763, ΔΔLoss: 0.000102133, λ: 0, λ_monotonic: 0.001375, λ_odd: 9.375E-07, λ_origin: 8.75E-05
+15:28:40 Epoch 8800 of 10000 (4 seconds remaining of 1 minute, 24 seconds total); Loss: 0.493862, ΔLoss: 0.0113724, ΔΔLoss: 0.000096112, λ: 0, λ_monotonic: 0.0014, λ_odd: 9.5E-07, λ_origin: 9E-05
+15:28:41 Epoch 8850 of 10000 (5 seconds remaining of 1 minute, 25 seconds total); Loss: 0.505313, ΔLoss: 0.0114509, ΔΔLoss: 0.000078470, λ: 0, λ_monotonic: 0.001425, λ_odd: 9.625E-07, λ_origin: 9.25E-05
+15:28:41 Epoch 8900 of 10000 (4 seconds remaining of 1 minute, 25 seconds total); Loss: 0.516805, ΔLoss: 0.0114925, ΔΔLoss: 0.000041634, λ: 0, λ_monotonic: 0.00145, λ_odd: 9.75E-07, λ_origin: 9.5E-05
+15:28:41 Epoch 8950 of 10000 (4 seconds remaining of 1 minute, 25 seconds total); Loss: 0.528384, ΔLoss: 0.0115786, ΔΔLoss: 0.000086129, λ: 0, λ_monotonic: 0.001475, λ_odd: 9.875E-07, λ_origin: 9.75E-05
+15:28:41 Epoch 9000 of 10000 (4 seconds remaining of 1 minute, 25 seconds total); Loss: 0.540136, ΔLoss: 0.0117523, ΔΔLoss: 0.000173688, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:41 Epoch 9050 of 10000 (3 seconds remaining of 1 minute, 24 seconds total); Loss: 0.543181, ΔLoss: 0.0030451, ΔΔLoss: -0.008707225, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:42 Epoch 9100 of 10000 (4 seconds remaining of 1 minute, 25 seconds total); Loss: 0.546212, ΔLoss: 0.0030310, ΔΔLoss: -0.000014126, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:42 Epoch 9150 of 10000 (3 seconds remaining of 1 minute, 25 seconds total); Loss: 0.549236, ΔLoss: 0.0030237, ΔΔLoss: -0.000007212, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:42 Epoch 9200 of 10000 (3 seconds remaining of 1 minute, 25 seconds total); Loss: 0.552254, ΔLoss: 0.0030186, ΔΔLoss: -0.000005126, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:42 Epoch 9250 of 10000 (3 seconds remaining of 1 minute, 25 seconds total); Loss: 0.555268, ΔLoss: 0.0030138, ΔΔLoss: -0.000004828, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:42 Epoch 9300 of 10000 (3 seconds remaining of 1 minute, 25 seconds total); Loss: 0.558273, ΔLoss: 0.0030047, ΔΔLoss: -0.000009120, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:43 Epoch 9350 of 10000 (2 seconds remaining of 1 minute, 24 seconds total); Loss: 0.561255, ΔLoss: 0.0029818, ΔΔLoss: -0.000022888, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:43 Epoch 9400 of 10000 (3 seconds remaining of 1 minute, 26 seconds total); Loss: 0.564180, ΔLoss: 0.0029253, ΔΔLoss: -0.000056446, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:43 Epoch 9450 of 10000 (2 seconds remaining of 1 minute, 25 seconds total); Loss: 0.567057, ΔLoss: 0.0028770, ΔΔLoss: -0.000048339, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:43 Epoch 9500 of 10000 (2 seconds remaining of 1 minute, 25 seconds total); Loss: 0.570006, ΔLoss: 0.0029494, ΔΔLoss: 0.000072360, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:43 Epoch 9550 of 10000 (2 seconds remaining of 1 minute, 25 seconds total); Loss: 0.572978, ΔLoss: 0.0029715, ΔΔLoss: 0.000022113, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:44 Epoch 9600 of 10000 (2 seconds remaining of 1 minute, 25 seconds total); Loss: 0.575930, ΔLoss: 0.0029518, ΔΔLoss: -0.000019670, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:44 Epoch 9650 of 10000 (1 second remaining of 1 minute, 25 seconds total); Loss: 0.578868, ΔLoss: 0.0029386, ΔΔLoss: -0.000013173, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:44 Epoch 9700 of 10000 (1 second remaining of 1 minute, 25 seconds total); Loss: 0.581799, ΔLoss: 0.0029304, ΔΔLoss: -0.000008225, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:44 Epoch 9750 of 10000 (1 second remaining of 1 minute, 25 seconds total); Loss: 0.584721, ΔLoss: 0.0029225, ΔΔLoss: -0.000007927, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:44 Epoch 9800 of 10000 (1 second remaining of 1 minute, 25 seconds total); Loss: 0.587633, ΔLoss: 0.0029121, ΔΔLoss: -0.000010371, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:45 Epoch 9850 of 10000 (1 second remaining of 1 minute, 25 seconds total); Loss: 0.590527, ΔLoss: 0.0028936, ΔΔLoss: -0.000018477, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:45 Epoch 9900 of 10000 (empty period remaining of 1 minute, 25 seconds total); Loss: 0.593378, ΔLoss: 0.0028515, ΔΔLoss: -0.000042140, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+15:28:45 Epoch 9950 of 10000 (empty period remaining of 1 minute, 25 seconds total); Loss: 0.596158, ΔLoss: 0.0027795, ΔΔLoss: -0.000071943, λ: 0, λ_monotonic: 0.0015, λ_odd: 1E-06, λ_origin: 0.0001
+round 1 15:28:46 Epoch: 10000 (of 10000; Loss: 0.014277, ΔLoss: -0.5818812, ΔΔLoss: -0.000071943
+Finished after 10000 epochs, Loss: 0.0142766675, ΔLoss: -0.5818812, Test loss: 0.015274538
+Testing manual model evaluation (as performed in OpenPilot)...
+Testing with zero bias: true
+Test passed: All outputs match!
+Testing manual model evaluation (as performed in OpenPilot)...
+Testing with zero bias: false
+Test passed: All outputs match!
+Test loss (MSE): 0.015274538
