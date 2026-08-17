@@ -91,8 +91,10 @@ def extract_segment(rlog_path):
                 sm["controlsState"] = msg.controlsState
             elif msg_type == "selfdriveState":
                 sm["selfdriveState"] = msg.selfdriveState
-            elif msg_type == "liveParameters":
-                sm["liveParameters"] = msg.liveParameters
+            elif msg_type in ("vehicleParameters", "liveParameters"):
+                # liveParameters was renamed to vehicleParameters in newer
+                # cereal schemas while keeping the same roll field.
+                sm["vehicleParameters"] = getattr(msg, msg_type)
             elif msg_type == "modelV2":
                 sm["modelV2"] = msg.modelV2
 
@@ -129,7 +131,7 @@ def extract_segment(rlog_path):
                 else:
                     active = getattr(ctrl, "active", getattr(ctrl, "activeDEPRECATED", False))
 
-                roll = sm["liveParameters"].roll if "liveParameters" in sm else float("nan")
+                roll = sm["vehicleParameters"].roll if "vehicleParameters" in sm else float("nan")
 
                 lane_change_state = 0
                 if "modelV2" in sm:
