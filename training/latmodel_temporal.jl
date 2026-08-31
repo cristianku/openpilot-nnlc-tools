@@ -70,6 +70,9 @@ using Optim
 
 using TeeStreams
 
+include(joinpath(@__DIR__, "nnlc_data.jl"))
+using .NNLCData: prepare_nnlc_training_data, validate_model_direction
+
 # Custom AdaGrad optimizer that uses Float32 literals
 struct CustomAdaGrad <: Optimisers.AbstractRule
   eta::Float32
@@ -141,18 +144,10 @@ function load_data(infile::String, use_existing_data::Bool, outdir::String, out_
       data = filter(row -> row.standstill == false, data)
       println(out_streams, f"Filtered out {old_nrows - nrow(data)} standstill rows")
     end
-    # Select only columns needed for training (extractor outputs many extra columns)
-    # Model inputs: v_ego, actual_lateral_accel, lateral_jerk (computed), roll, temporal lat accels, temporal rolls
-    # Target: torque_output
-    temporal_lat_accel_cols = filter(c -> occursin(r"^actual_lateral_accel_t[mp]\d+$", c), names(data))
-    temporal_roll_cols = filter(c -> occursin(r"^roll_t[mp]\d+$", c), names(data))
-    keep_cols = vcat(["v_ego", "actual_lateral_accel", "roll", "torque_output"], temporal_lat_accel_cols, temporal_roll_cols)
-    # Also keep actual_lateral_accel_tp03 for lateral_jerk computation (it's already in temporal cols)
-    select!(data, Symbol.(keep_cols))
-
-    # Compute lateral_jerk from temporal data (not output by extractor)
-    println(out_streams, "Computing lateral_jerk from temporal lateral accel")
-    data[!, :lateral_jerk] = @fastmath @. (data[!, :actual_lateral_accel_tp03] - data[!, :actual_lateral_accel]) / 0.03f0
+    # Compute lateral jerk, validate the controller torque direction, and put
+    # inputs in the exact order consumed by sunnypilot's NNLC runtime.
+    println(out_streams, "Preparing canonical NNLC inputs")
+    data = prepare_nnlc_training_data(data)
 
     println(out_streams, f"Loaded {nrow(data)} rows")
     println(out_streams, f"Data {data[sample(1:nrow(data), 20), :]}")
@@ -789,6 +784,28 @@ function train_model(working_dir::String, use_existing_model::Bool, data::DataFr
 
   test_dict_zero_bias = test_evaluate_manually(model, zero_bias=true)
   test_dict = test_evaluate_manually(model)
+
+  # Openpilot supplies the temporal lateral-acceleration inputs in the same
+  # direction as the current request. Refuse to export a model that turns
+  # positive lateral acceleration into negative steering torque (or vice versa).
+  direction_samples = []
+  for speed in (10f0, 20f0, 30f0)
+    outputs = Float32[]
+    for lataccel in (-1f0, 0f0, 1f0)
+      input_data = reshape(Float32[
+        speed,
+        lataccel,
+        0f0,
+        0f0,
+        fill(lataccel, 7)...,
+        zeros(Float32, 7)...,
+      ], 1, :)
+      push!(outputs, feedforward_function(input_data))
+    end
+    push!(direction_samples, (speed, outputs...))
+  end
+  validate_model_direction(direction_samples)
+  println(out_streams, "NNLC torque direction validation passed")
 
   current_date_and_time = Dates.format(now(), "yyyy-mm-dd_HH-MM-SS")
 

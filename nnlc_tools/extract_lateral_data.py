@@ -118,7 +118,10 @@ def extract_segment(rlog_path):
                     ts = lat_state.torqueState
                     actual_lat_accel = ts.actualLateralAccel
                     desired_lat_accel = ts.desiredLateralAccel
-                    torque_output = ts.output
+                    # LateralTorqueState.output is the actuator command returned
+                    # by LatControlTorque. NNLC predicts the controller's internal
+                    # torque, which uses the opposite sign convention.
+                    torque_output = -ts.output
                     saturated = ts.saturated
                 elif lat_type == "pidState":
                     ps = lat_state.pidState
