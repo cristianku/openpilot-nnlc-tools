@@ -12,12 +12,15 @@ import tempfile
 
 import pytest
 
+from nnlc_tools.visualize_model import NNModel
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FIXTURE = os.path.join(REPO_ROOT, "tests", "fixtures", "test_data.csv")
 RUN_SCRIPT = os.path.join(REPO_ROOT, "training", "run.sh")
 
 
 @pytest.mark.slow
+@pytest.mark.skipif(shutil.which("julia") is None, reason="Julia is not installed")
 def test_training_produces_valid_model():
     """Run training on fixture data and verify JSON output."""
     if not os.path.exists(FIXTURE):
@@ -59,3 +62,7 @@ def test_training_produces_valid_model():
         assert expected_keys.issubset(model.keys()), (
             f"Model JSON missing keys. Expected {expected_keys}, got {set(model.keys())}"
         )
+        # [nnlc contract] - START
+        # Validate the actual serialized model, not only the presence of keys.
+        NNModel(model_path).validate_nnlc()
+        # [nnlc contract] - END

@@ -4,7 +4,7 @@ using DataFrames
 using Statistics
 
 export NNLC_INPUT_COLUMNS, prepare_nnlc_training_data, validate_model_direction,
-       validate_torque_direction
+       validate_torque_direction, validate_nnlc_training_data
 
 const NNLC_INPUT_COLUMNS = [
   :v_ego,
@@ -51,6 +51,28 @@ function validate_model_direction(output_samples)::Nothing
   return nothing
 end
 
+# [nnlc contract] - START
+function validate_nnlc_training_data(data::DataFrame)::Nothing
+  bin_columns = [:combined_column, :v_ego_bins, :actual_lateral_accel_bins,
+                 :lateral_jerk_bins, :roll_bins]
+  input_columns = filter(col -> col != :torque_output && col ∉ bin_columns, propertynames(data))
+  if input_columns != NNLC_INPUT_COLUMNS || :torque_output ∉ propertynames(data)
+    throw(ArgumentError(
+      "training data does not match current NNLC input order; regenerate the balanced CSV " *
+      "from freshly extracted logs instead of reusing legacy data",
+    ))
+  end
+  validate_torque_direction(data)
+  expected_jerk = (data.actual_lateral_accel_tp03 .- data.actual_lateral_accel) ./ 0.3
+  if !all(isapprox.(data.lateral_jerk, expected_jerk; rtol=1e-5, atol=1e-6))
+    throw(ArgumentError(
+      "cached lateral_jerk is incompatible: tp03 is 0.3 seconds; regenerate the balanced CSV",
+    ))
+  end
+  return nothing
+end
+# [nnlc contract] - END
+
 function prepare_nnlc_training_data(data::DataFrame)::DataFrame
   prepared = copy(data)
 
@@ -61,7 +83,7 @@ function prepare_nnlc_training_data(data::DataFrame)::DataFrame
   ) / 0.3
 
   select!(prepared, vcat(NNLC_INPUT_COLUMNS, [:torque_output]))
-  validate_torque_direction(prepared)
+  validate_nnlc_training_data(prepared)
   return prepared
 end
 

@@ -21,6 +21,7 @@ The training script reads a CSV file produced by `extract_lateral_data.py --temp
 - `actual_lateral_accel` — measured lateral acceleration (m/s²)
 - `desired_lateral_accel` — desired lateral acceleration (m/s²)
 - `roll` — road roll angle (radians)
+- `torque_output` — controller internal torque, extracted as **minus** `torqueState.output`
 - Temporal columns at offsets: `-0.3, -0.2, -0.1, +0.3, +0.6, +1.0, +1.5` seconds
 
 The script expects the CSV at a path like `/path/to/latmodels/YOUR_CAR_NAME.csv`.
@@ -31,7 +32,7 @@ The training script outputs a JSON file compatible with sunnypilot's `NNTorqueMo
 
 ```json
 {
-  "input_size": 25,
+  "input_size": 18,
   "output_size": 1,
   "input_mean": [15.2, 0.01, ...],
   "input_std": [8.5, 1.2, ...],
@@ -47,6 +48,30 @@ The training script outputs a JSON file compatible with sunnypilot's `NNTorqueMo
 ```
 
 Deploy the JSON file to: `sunnypilot/neural_network_data/neural_network_lateral_control/`
+
+<!-- [nnlc contract] - START -->
+The production input order is exactly: `v_ego`, `actual_lateral_accel`,
+`lateral_jerk`, `roll`, seven temporal lateral-acceleration columns, then seven
+temporal roll columns. Sunnypilot evaluates inputs by position; it does not
+reorder them using `input_vars`. The training helper derives lateral jerk using
+the **0.3-second** future sample. Both fresh and reused balanced data must have
+this order and the internal torque sign. Legacy balanced data with a different
+order, jerk scale or torque direction is rejected and must be regenerated from
+freshly extracted logs.
+
+Before using an exported model, run:
+
+```bash
+uv run nnlc-validate /path/to/model.json /path/to/training_data.csv -o /path/to/validation/
+```
+
+This now rejects a legacy input order, incompatible normalization or activations,
+and reversed internal torque response before generating plots. Predictions use
+Sunnypilot's sigmoid exponent limit. It checks steady lateral-acceleration sweeps
+at 10, 20 and 30 m/s; passing is an offline compatibility check, not vehicle
+validation. Correcting the tools does not repair a previously trained JSON.
+Re-extract and retrain rather than changing only its `input_vars` metadata.
+<!-- [nnlc contract] - END -->
 
 ## Dependencies
 

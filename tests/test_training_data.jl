@@ -66,3 +66,27 @@ end
     (20.0, 0.6, 0.0, -0.6),
   ])
 end
+
+# [nnlc contract] - START
+@testset "NNLC cached data compatibility" begin
+  prepared = prepare_nnlc_training_data(sample_data())
+  prepared.combined_column = ["left", "right"]
+  prepared.v_ego_bins = [1, 1]
+  prepared.actual_lateral_accel_bins = [1, 2]
+  prepared.lateral_jerk_bins = [1, 1]
+  prepared.roll_bins = [1, 1]
+  @test validate_nnlc_training_data(prepared) === nothing
+
+  legacy_order = select(prepared, Not(:lateral_jerk))
+  legacy_order.lateral_jerk = prepared.lateral_jerk
+  @test_throws ArgumentError validate_nnlc_training_data(legacy_order)
+
+  legacy_jerk = copy(prepared)
+  legacy_jerk.lateral_jerk .*= 10.0
+  @test_throws ArgumentError validate_nnlc_training_data(legacy_jerk)
+
+  reversed_torque = copy(prepared)
+  reversed_torque.torque_output .*= -1.0
+  @test_throws ArgumentError validate_nnlc_training_data(reversed_torque)
+end
+# [nnlc contract] - END

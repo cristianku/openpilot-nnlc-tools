@@ -71,7 +71,7 @@ using Optim
 using TeeStreams
 
 include(joinpath(@__DIR__, "nnlc_data.jl"))
-using .NNLCData: prepare_nnlc_training_data, validate_model_direction
+using .NNLCData: prepare_nnlc_training_data, validate_model_direction, validate_nnlc_training_data
 
 # Custom AdaGrad optimizer that uses Float32 literals
 struct CustomAdaGrad <: Optimisers.AbstractRule
@@ -269,6 +269,11 @@ function load_data(infile::String, use_existing_data::Bool, outdir::String, out_
     CSV.write(joinpath(outdir, replace(Base.basename(infile), ".csv" => "_balanced.csv")), data)
   else
     println(out_streams, "Loading preprocessed data...")
+    # [nnlc contract] - START
+    # Cached CSVs must satisfy the same input/sign contract as fresh data.
+    # Preserve the bin columns needed by stratifiedobs in train_model.
+    validate_nnlc_training_data(data)
+    # [nnlc contract] - END
   end
 
   return data

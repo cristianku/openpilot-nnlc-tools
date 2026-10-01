@@ -20,9 +20,22 @@ import numpy as np
 import pandas as pd
 
 
+# [nnlc contract] - START
+# NNTorqueModel consumes inputs by position and does not read input_vars.
+NNLC_INPUT_COLUMNS = [
+    "v_ego", "actual_lateral_accel", "lateral_jerk", "roll",
+    "actual_lateral_accel_tm03", "actual_lateral_accel_tm02", "actual_lateral_accel_tm01",
+    "actual_lateral_accel_tp03", "actual_lateral_accel_tp06", "actual_lateral_accel_tp10",
+    "actual_lateral_accel_tp15", "roll_tm03", "roll_tm02", "roll_tm01", "roll_tp03",
+    "roll_tp06", "roll_tp10", "roll_tp15",
+]
+# [nnlc contract] - END
+
+
 # Activation functions
 def sigmoid(x):
-    return 1.0 / (1.0 + np.exp(-np.clip(x, -500, 500)))
+    # Match Sunnypilot's safe_exp, including the clamped negative tail.
+    return 1.0 / (1.0 + np.exp(np.minimum(-x, 11.0)))
 
 
 def identity(x):
@@ -54,6 +67,7 @@ class NNModel:
             params = json.load(f)
 
         self.input_size = params["input_size"]
+        self.output_size = params["output_size"]
         self.input_mean = np.array(params["input_mean"], dtype=np.float32).T.flatten()
         self.input_std = np.array(params["input_std"], dtype=np.float32).T.flatten()
         self.input_vars = params.get("input_vars", [])
@@ -88,6 +102,37 @@ class NNModel:
     def make_input_at_means(self, n=1):
         """Create input array filled with mean values (un-normalized space)."""
         return np.tile(self.input_mean, (n, 1))
+
+    # [nnlc contract] - START
+    def validate_nnlc(self):
+        """Check positional compatibility and internal torque direction."""
+        if self.input_size != 18 or self.output_size != 1 or self.input_vars != NNLC_INPUT_COLUMNS:
+            raise ValueError(
+                "Model inputs do not match current Sunnypilot NNLC: expected 18 inputs "
+                "with lateral_jerk third, roll fourth, and one torque output. "
+                "Re-extract and retrain; changing input_vars alone does not fix the weights."
+            )
+        if (self.input_mean.shape != (18,) or self.input_std.shape != (18,)
+                or not np.all(np.isfinite(self.input_mean))
+                or not np.all(np.isfinite(self.input_std)) or np.any(self.input_std <= 0)):
+            raise ValueError("NNLC normalization must contain 18 finite means and positive standard deviations")
+        if not self.layers or any(act not in (sigmoid, identity) for _, _, act in self.layers):
+            raise ValueError("Current Sunnypilot NNLC supports only sigmoid and identity activations")
+
+        accelerations = np.array([-1.0, -0.5, 0.0, 0.5, 1.0], dtype=np.float32)
+        for speed in (10.0, 20.0, 30.0):
+            inputs = np.zeros((len(accelerations), 18), dtype=np.float32)
+            inputs[:, 0] = speed
+            inputs[:, 1] = accelerations
+            inputs[:, 4:11] = accelerations[:, None]
+            outputs = self.predict(inputs)
+            if (outputs.shape != (len(accelerations), 1)
+                    or not np.all(np.isfinite(outputs)) or not np.all(np.diff(outputs[:, 0]) > 0)):
+                raise ValueError(
+                    f"Wrong NNLC internal torque direction at {speed:g} m/s: "
+                    "torque must increase with lateral acceleration. Re-extract and retrain."
+                )
+    # [nnlc contract] - END
 
 
 def load_data(csv_path):
@@ -259,7 +304,15 @@ def main():
         print(f"ERROR: Data file not found: {args.data}")
         sys.exit(1)
 
-    model = NNModel(args.model)
+    # [nnlc contract] - START
+    try:
+        model = NNModel(args.model)
+        model.validate_nnlc()
+    except (ValueError, KeyError) as exc:
+        print(f"ERROR: {exc}")
+        sys.exit(1)
+    print("NNLC compatibility validation passed (offline; no vehicle validation)")
+    # [nnlc contract] - END
     print(f"Loaded model: {model.input_size} inputs, {len(model.layers)} layers")
     print(f"  Input vars: {model.input_vars}")
 
