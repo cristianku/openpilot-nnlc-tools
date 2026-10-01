@@ -14,7 +14,6 @@
 #     "ProgressMeter",
 #     "Zygote",
 #     "Optim",
-#     "FluxOptTools",
 #     "Plots",
 #     "BSON",
 #     "CategoricalArrays",
@@ -51,7 +50,7 @@ using PyFormattedStrings
 using Base.Threads
 using Random
 using ProgressMeter
-using Zygote, Optim, FluxOptTools
+using Zygote, Optim
 using StatsBase: sample
 using Plots
 using Plots.PlotMeasures

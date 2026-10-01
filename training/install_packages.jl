@@ -19,7 +19,6 @@ packages = [
     "ProgressMeter",
     "Zygote",
     "Optim",
-    "FluxOptTools",
     "Plots",
     "BSON",
     "CategoricalArrays",
