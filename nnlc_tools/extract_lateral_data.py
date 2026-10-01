@@ -15,6 +15,7 @@ import glob
 import os
 import sys
 
+import capnp
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -77,7 +78,9 @@ def extract_segment(rlog_path):
         for msg in lr:
             try:
                 msg_type = msg.which()
-            except Exception:
+            except capnp.KjException as e:
+                if "Attempted to call which on a non-union type" not in str(e):
+                    raise
                 # Logs can contain newer Event union variants that are absent
                 # from the bundled cereal schema. They are unrelated to the
                 # signals extracted here, so skip them instead of discarding
